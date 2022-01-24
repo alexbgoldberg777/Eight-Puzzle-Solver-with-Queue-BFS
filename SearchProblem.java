@@ -3,35 +3,26 @@ package search;
 import java.util.List;
 
 /**
- * An interface to a generic search problem. A search problem is defined by an
- * initial state, one or more goal states, and method that returns the
- * successors of an arbitrary state.
- * 
- * @author liberato
- *
+ * This interface is of a generic search problem that is used as a base for the 
+ * Eight Puzzle game.
  * @param <T>
- *            the type of each state in the search problem
+ *
  */
 public interface SearchProblem<T> {
   /** getInitialState.
-   * @return the initial (starting) state of the search problem
+   * @return the starting state of a given search problem
    */
   T getInitialState();
 
   /**
-   * Returns the list of successors (that is, reachable neighbors) from this
-   * state.
-   * The list will be empty if there are no successors (though this behavior
-   * will only appear in degenerate search problems).
-   * 
    * @param currentState : current state
-   * @return the list of successors of currentState
+   * @return the list of states adjacent to the current state
    */
   List<T> getSuccessors(T currentState);
 
   /** isGoal.
    * @param state : state
-   * @return true iff state is a goal state for this problem
+   * @return true iff the given state is the desired end goal state
    */
   boolean isGoal(T state);
 }
