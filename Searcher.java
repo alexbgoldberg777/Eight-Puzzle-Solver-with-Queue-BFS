@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * An abstraction over the idea of a search.
- *
- * @author liberato
- *
- * @param <T> : generic type.
+ * A generic class used to search for a solution over given nodes and the states which can
+ * be reached with them.
  */
 public abstract class Searcher<T> {
 	protected final SearchProblem<T> searchProblem;
@@ -16,7 +13,7 @@ public abstract class Searcher<T> {
 	protected List<T> solution;
 
 	/**
-	 * Instantiates a searcher.
+	 * Constructs a Searcher.
 	 * 
 	 * @param searchProblem the search problem for which this searcher will find and
 	 *                      validate solutions
@@ -27,44 +24,8 @@ public abstract class Searcher<T> {
 	}
 
 	/**
-	 * Finds and return a solution to the problem, consisting of a list of states.
-	 * The list should start with the initial state of the underlying problem. Then,
-	 * it should have one or more additional states. Each state should be a
-	 * successor of its predecessor. The last state should be a goal state of the
-	 * underlying problem. If there is no solution, then this method should return
-	 * an empty list.
-	 * 
-	 * @return a solution to the problem (or an empty list)
+	 * @return a solution to the given problem, which will contain a list of states in
+	 * order of how they were traversed.
 	 */
 	public abstract List<T> findSolution();
-
-	/**
-	 * Checks that a solution is valid. A valid solution consists of a list of
-	 * states. The list should start with the initial state of the underlying
-	 * problem. Then, it should have one or more additional states. Each state
-	 * should be a successor of its predecessor. The last state should be a goal
-	 * state of the underlying problem.
-	 * 
-	 * @param solution : solution
-	 * @return true iff this solution is a valid solution
-	 * @throws NullPointerException if solution is null
-	 */
-	public final boolean isValidSolution(List<T> solution) {
-		// TODO
-		if (solution.size() < 1) {
-			return false;
-		}
-		if (solution.get(0) != searchProblem.getInitialState()) {
-			return false;
-		}
-		for (int i = 0; i < solution.size() - 1; i++) {
-			if (!searchProblem.getSuccessors(solution.get(i)).contains(solution.get(i + 1))) {
-				return false;
-			}
-		}
-		if (!searchProblem.isGoal(solution.get(solution.size() - 1))) { // if last state is not goal
-			return false;
-		}
-		return true;
-	}
 }
