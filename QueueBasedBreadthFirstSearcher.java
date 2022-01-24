@@ -8,41 +8,43 @@ import java.util.Queue;
 
 /**
  * This implementation of the Breadth First Search algorithm utilizes a queue to search for 
- * 
+ * successive states to solve an Eight Puzzle game.
  */
 public class QueueBasedBreadthFirstSearcher<T> extends Searcher<T> {
 
 	/**
-	 * QueueBasedBreadthFirstSearcher.
-	 * 
 	 * @param searchProblem : search problem
 	 */
 	public QueueBasedBreadthFirstSearcher(SearchProblem<T> searchProblem) {
 		super(searchProblem);
 	}
-
+	
+	/** 
+	* This findSolution method returns the goal of a BFS search. Specifically, it utilizes
+	* the Eight Puzzle's methods to find the goal of a game of Eight Puzzle and returns the
+	* necessary swaps for solving the game.
+	*/
 	@Override
 	public List<T> findSolution() {
-		Queue<T> queue = new LinkedList<T>();
-		List<T> states = new ArrayList<T>();
-		List<T> predecessors = new ArrayList<T>();
-		T start = searchProblem.getInitialState();
+		Queue<T> queue = new LinkedList<T>(); //These initializations include a queue to temporarily store non-fully-explored states,
+		List<T> states = new ArrayList<T>();  //a list of explored states of the game, a list of predecessors to discovered nodes/tiles,
+		List<T> predecessors = new ArrayList<T>(); //the starting state, the currently-explored state, a flag for if the current state
+		T start = searchProblem.getInitialState(); //is the solution, and the list of resulting states of the search.
 		queue.add(start);
 		states.add(start);
 		predecessors.add(start);
-		// visited.add(start);
 		T current;
 		boolean flag = false;
 		List<T> results = new ArrayList<T>();
-		while (!queue.isEmpty()) {
+		while (!queue.isEmpty()) { //Performs a traversal in Breadth First Search order to find the goal state.
 			current = queue.remove();
 			visited.add(current);
-			if (searchProblem.isGoal(current)) {
+			if (searchProblem.isGoal(current)) { //If the current state is goal, stop searching.
 				flag = true;
 				results.add(current);
 				break;
-			} else {
-				for (T neighbor : searchProblem.getSuccessors(current)) {
+			} else { 			     //Adds all states to the appropriate lists for if they have been discovered or fully-explored
+				for (T neighbor : searchProblem.getSuccessors(current)) { //yet according to the standard BFS algorithm.
 					if (!visited.contains(neighbor)) {
 						if (!states.contains(neighbor)) {
 							states.add(neighbor);
@@ -54,7 +56,7 @@ public class QueueBasedBreadthFirstSearcher<T> extends Searcher<T> {
 				}
 			}
 		}
-		if (flag) {
+		if (flag) { //If the goal has been found, the list of predecessors is used to place the states in order of the steps to reach the goal.
 			T current1 = results.get(0);
 			while (!current1.equals(searchProblem.getInitialState())) {
 				T predecessor = predecessors.get(states.indexOf(current1));
@@ -66,12 +68,3 @@ public class QueueBasedBreadthFirstSearcher<T> extends Searcher<T> {
 		return results;
 	}
 }
-/*
- * queue, states, predecessors while queue isn't empty, put first node in queue,
- * then take it off and add to visited (look at slides to see example) if this
- * is the goal, break while loop else getsuccessors(currentNode) add all
- * unvisited to queues, states, and predecessors if current node is goal, break
- * loop, make a new results list (path from start to finish), start from goal,
- * add predecessor to results, then add that predecessor to results, continue
- * reverse this list and return
- */
