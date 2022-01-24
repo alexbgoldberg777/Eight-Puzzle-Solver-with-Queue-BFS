@@ -7,8 +7,7 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * An implementation of a Searcher that performs an iterative search, storing
- * the list of next states in a Queue. This results in a breadth-first search.
+ * This implementation of the Breadth First Search algorithm utilizes a queue to search for 
  * 
  */
 public class QueueBasedBreadthFirstSearcher<T> extends Searcher<T> {
@@ -24,7 +23,6 @@ public class QueueBasedBreadthFirstSearcher<T> extends Searcher<T> {
 
 	@Override
 	public List<T> findSolution() {
-		// TODO
 		Queue<T> queue = new LinkedList<T>();
 		List<T> states = new ArrayList<T>();
 		List<T> predecessors = new ArrayList<T>();
