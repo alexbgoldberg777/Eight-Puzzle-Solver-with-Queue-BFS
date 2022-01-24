@@ -87,6 +87,7 @@ public class EightPuzzle implements SearchProblem<List<Integer>> {
 
 	/**
 	 * This main method plays one game of Eight Puzzle. New numbers can be typed into the input list to test different games.
+	 * It uses the Solver class and its solveWithBFS method to find the solution to the game with a Queue-based Breadth First Search.
 	 */
 	public static void main(String[] args) {
 		EightPuzzle e = new EightPuzzle(Arrays.asList(new Integer[] { 1, 2, 3, 4, 0, 6, 7, 5, 8 }));
