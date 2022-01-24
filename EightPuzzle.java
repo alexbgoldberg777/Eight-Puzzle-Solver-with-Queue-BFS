@@ -14,7 +14,7 @@ import Solver;
  * Tiles are swapped continuously in order to get the tiles in numerical order, with 
  * the empty space at the end. In this implementation, the tiles are an array list, 
  * with the solution being the numbers 1-8, 0 in that order in the returned array list.
- * More information about a similar 5x5 game can be found here: https://en.wikipedia.org/wiki/15_puzzle
+ * More information about a similar 4x4 game can be found here: https://en.wikipedia.org/wiki/15_puzzle
  */
 public class EightPuzzle implements SearchProblem<List<Integer>> {
 
