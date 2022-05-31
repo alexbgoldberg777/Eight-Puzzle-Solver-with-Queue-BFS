@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import SearchProblem;
+import GenericGame;
 import Solver;
 
 /**
@@ -16,7 +16,7 @@ import Solver;
  * with the solution being the numbers 1-8, 0 in that order in the returned array list.
  * More information about a similar 4x4 game can be found here: https://en.wikipedia.org/wiki/15_puzzle
  */
-public class EightPuzzle implements SearchProblem<List<Integer>> {
+public class EightPuzzle implements GenericGame<List<Integer>> {
 
 	List<Integer> values;
 
