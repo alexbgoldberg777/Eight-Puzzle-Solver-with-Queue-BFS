@@ -7,7 +7,7 @@ The game relies on an implementation of Breadth First Search that uses a queue i
 **Dependencies**
 
 GenericGame.java: java.util.List \
-Searcher.java: java.util.ArrayList, java.util.List \
+Searcher.java: java.util.ArrayList, java.util.List, GenericGame.java \
 BFSQueue.java: java.util.ArrayList, java.util.Collections, java.util.LinkedList, java.util.List, java.util.Queue, Searcher.java \
 Solver.java: java.util.List, BFSQueue.java \
 EightPuzzle.java: java.util.Arraylist, java.util.Arrays, java.util.Collections, java.util.List, GenericGame.java, Solver.java
