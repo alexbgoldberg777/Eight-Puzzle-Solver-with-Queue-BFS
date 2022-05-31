@@ -10,12 +10,12 @@ import java.util.Queue;
  * This implementation of the Breadth First Search algorithm utilizes a queue to search for 
  * successive states to solve an Eight Puzzle game.
  */
-public class QueueBasedBreadthFirstSearcher<T> extends Searcher<T> {
+public class BFSQueue<T> extends Searcher<T> {
 
 	/**
 	 * @param searchProblem : search problem
 	 */
-	public QueueBasedBreadthFirstSearcher(SearchProblem<T> searchProblem) {
+	public BFSQueue(SearchProblem<T> searchProblem) {
 		super(searchProblem);
 	}
 	
