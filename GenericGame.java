@@ -8,7 +8,7 @@ import java.util.List;
  * @param <T>
  *
  */
-public interface SearchProblem<T> {
+public interface GenericGame<T> {
   /** getInitialState.
    * @return the starting state of a given search problem
    */
