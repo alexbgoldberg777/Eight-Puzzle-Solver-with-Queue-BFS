@@ -18,8 +18,8 @@ public class Solver<T> {
    * @return a solution to a problem that searches with Breadth First
    * Search in the form of a list of states.
    */
-  public List<T> solveWithBFS() {
-    Searcher<T> s = new QueueBasedBreadthFirstSearcher<T>(problem);
+  public List<T> BFSSolve() {
+    Searcher<T> s = new BFSQueue<T>(problem);
     return s.findSolution();
   }
 }
