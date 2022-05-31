@@ -8,7 +8,7 @@ import java.util.List;
  * be reached with them.
  */
 public abstract class Searcher<T> {
-	protected final SearchProblem<T> searchProblem;
+	protected final GenericGame<T> searchProblem;
 	protected final List<T> visited;
 	protected List<T> solution;
 
@@ -18,7 +18,7 @@ public abstract class Searcher<T> {
 	 * @param searchProblem the search problem for which this searcher will find and
 	 *                      validate solutions
 	 */
-	public Searcher(SearchProblem<T> searchProblem) {
+	public Searcher(GenericGame<T> searchProblem) {
 		this.searchProblem = searchProblem;
 		this.visited = new ArrayList<T>();
 	}
