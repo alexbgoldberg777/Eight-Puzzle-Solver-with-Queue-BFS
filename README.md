@@ -3,6 +3,8 @@ This program plays and solves the Eight-Puzzle game (more information here: http
 
 The game relies on an implementation of Breadth First Search that uses a queue in order to traverse the possible moves that can be made given the current state of the grid (found in QueueBasedBreadthFirstSearcher.java). SearchProblem.java and Searcher.java are interfaces that the main game and search code use as a base to perform the game's actions. Solver.java contains the code that uses the search file to find the solution to the game.
 
+The Eight Puzzle Solver was initially created during Joe Chiu's UMass Amherst Spring 2020 Data Structures Course.
+
 
 **Dependencies**
 
